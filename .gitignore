@@ -1,0 +1,38 @@
+# node modules
+node_modules/
+
+# environment variables
+.env
+.env.*
+.env*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# editor folders
+.vscode/
+.idea/
+
+# build output
+dist/
+build/
+.next/
+out/
+
+# typescript cache
+*.tsbuildinfo
+
+# coverage reports
+coverage/
+
+# optional dotenv backups
+.env.backup
+
+# other
+*.log
