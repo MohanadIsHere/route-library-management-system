@@ -30,7 +30,8 @@ export const register = async (req, res, next) => {
     return res.status(201).json({
       message: "User created successfully",
       data: {
-        user,
+        user : {
+name : user.name , email : user.email, role : user.role},
       },
     });
   } catch (error) {
@@ -52,6 +53,7 @@ export const login = async (req, res, next) => {
     if (!isPasswordValid) {
       const error = new Error("Invalid Credentials");
       error.statusCode = 400;
+throw error
     }
     const accessToken = generateToken({
       payload: {
