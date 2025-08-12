@@ -139,6 +139,7 @@ export const getAllTransactions = async (req, res, next) => {
       .sort({ borrowDate: 1 })
       .populate("bookId", "title author")
       .populate("userId", "name email");
+      
 
     if (transactions.length === 0) {
       const error = new Error("No transactions found");

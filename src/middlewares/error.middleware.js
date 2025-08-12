@@ -1,6 +1,6 @@
 import { NODE_ENV } from "../config/env.js";
 
-const errorMiddleware = (err, req, res,next) => {
+const errorMiddleware = (err, req, res) => {
   try {
     let error = { ...err };
     error.message = err.message;

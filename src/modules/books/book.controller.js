@@ -23,7 +23,7 @@ export const createBook = async (req, res, next) => {
 export const updateBook = async (req, res, next) => {
   try {
     const { title, author, publishedYear, availableCopies } = req?.body || {};
-    const { id } = req?.params;
+    const { id } = req?.params || {};
 
     if (req?.user?.role !== roles.admin) {
       const error = new Error("You must be an admin to update a book");
@@ -53,7 +53,7 @@ export const updateBook = async (req, res, next) => {
 
 export const deleteBook = async (req, res, next) => {
   try {
-    const { id } = req?.params;
+    const { id } = req?.params || {};
 
     if (req?.user?.role !== roles.admin) {
       const error = new Error("You must be an admin to delete a book");

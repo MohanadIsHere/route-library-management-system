@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import path from "node:path";
+import process from "node:process";
 dotenv.config({ path: path.resolve("./.env.dev.local") });
 
 export const {
