@@ -104,8 +104,8 @@ You can view and test all API endpoints using the Postman collection:
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/your-username/library-management-system.git
-cd library-management-system
+git clone https://github.com/MohanadIsHere/route-library-management-system.git
+cd route-library-management-system
 ```
 
 ### 2️⃣ Install dependencies
@@ -114,18 +114,27 @@ npm install
 ```
 
 ### 3️⃣ Configure environment variables  
-Create a `.env` file in the root directory and set:
-```env
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/library
-JWT_SECRET=your_jwt_secret_key
+Create a `.env.dev.local` file in the root directory and set:
+```
+PORT
+NODE_ENV
+DB_URI
+JWT_ACCESS_TOKEN_SECRET
+JWT_ACCESS_TOKEN_SECRET_ADMIN
+JWT_REFRESH_TOKEN_SECRET_ADMIN
+JWT_ACCESS_TOKEN_EXPIRES_IN
+JWT_REFRESH_TOKEN_SECRET
+JWT_REFRESH_TOKEN_EXPIRES_IN
+ENCRYPTION_KEY
+SALT_ROUNDS
+
 ```
 
 ### 4️⃣ Run the server
 ```bash
-npm start
+npm run dev
 ```
-Server will run on: **http://localhost:5000**
+Server will run on: **http://localhost:3000**
 
 ---
 
@@ -149,8 +158,8 @@ Server will run on: **http://localhost:5000**
 ### Transaction Routes
 | Method | Endpoint                        | Description                | Auth |
 |--------|---------------------------------|----------------------------|------|
-| POST   | /api/transactions/borrow        | Borrow a book              | ✅   |
-| PUT    | /api/transactions/return/:id    | Return a borrowed book     | ✅   |
+| POST   | /api/transactions/borrow        | Borrow a book              |  ✅   |
+| PUT    | /api/transactions/return/:id    | Return a borrowed book     |  ✅   |
 | GET    | /api/transactions/user          | Get user transaction history| ✅  |
 
 ---
@@ -167,8 +176,3 @@ Server will run on: **http://localhost:5000**
 - Use **Postman** link above to test routes
 - All routes return **JSON** responses
 - Protected routes require `Authorization: Bearer <token>` header
-
----
-
-## 📄 License
-This project is for educational purposes only.
