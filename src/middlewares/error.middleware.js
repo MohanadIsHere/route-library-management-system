@@ -17,7 +17,7 @@ const errorMiddleware = (err, req, res) => {
       const field = Object.keys(err.keyPattern)[0];
       const message = `${field.charAt(0).toUpperCase() + field.slice(1)} already exists`;
       error = new Error(message);
-      error.statusCode = 409; // Conflict is more appropriate than 400
+      error.statusCode = 409;
     }
 
     // Mongoose validation error

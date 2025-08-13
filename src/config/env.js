@@ -1,7 +1,6 @@
 import dotenv from "dotenv";
-import path from "node:path";
+dotenv.config({ path: "./.env.prod.local" });
 import process from "node:process";
-dotenv.config({ path: path.resolve("./.env.dev.local") });
 
 export const {
   PORT,
