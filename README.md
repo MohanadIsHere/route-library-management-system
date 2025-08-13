@@ -114,7 +114,13 @@ npm install
 ```
 
 ### 3️⃣ Configure environment variables  
-Create a `.env.dev.local` file in the root directory and set:
+Create two files in the root directory:
+
+1. `.env.dev.local` for development environment
+2. `.env.prod.local` for production environment
+
+Then add those variables: 
+
 ```
 PORT
 NODE_ENV
@@ -173,6 +179,6 @@ Server will run on: **http://localhost:3000**
 ---
 
 ## 🧪 Testing
-- Use **Postman** link above to test routes
+- Use the **Postman** link above to test routes
 - All routes return **JSON** responses
 - Protected routes require `Authorization: Bearer <token>` header
