@@ -27,10 +27,10 @@ const runServer = ({ express, app }) => {
   connectToDatabase();
 
   // Routes & Endpoints
-  app.use("/api/users", userRouter);
-  app.use("/api/books", bookRouter);
-  app.use("/api/transactions", transactionRouter);
-  app.get("/", (req, res) =>
+  app.use("/api/v1/users", userRouter);
+  app.use("/api/v1/books", bookRouter);
+  app.use("/api/v1/transactions", transactionRouter);
+  app.get("/get-started", (req, res) =>
     res.json({ message: "Welcome to Route Library Management System 👋 !" })
   );
 
