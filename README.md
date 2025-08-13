@@ -137,9 +137,10 @@ SALT_ROUNDS
 ```
 
 ### 4️⃣ Run the server
-```bash
-npm run dev
-```
+
+- `npm run dev` runs the server in watch mode using nodemon
+- `npm start` runs the server normally without watch mode
+
 Server will run on: **http://localhost:3000**
 
 ---
@@ -181,4 +182,6 @@ Server will run on: **http://localhost:3000**
 ## 🧪 Testing
 - Use the **Postman** link above to test routes
 - All routes return **JSON** responses
-- Protected routes require `Authorization: Bearer <token>` header
+- Protected routes require `Authorization: bearer <token>` header for members
+- Protected routes require `Authorization: admin <token>` header for admins
+
