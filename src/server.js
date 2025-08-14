@@ -30,7 +30,7 @@ const runServer = ({ express, app }) => {
   app.use("/api/v1/users", userRouter);
   app.use("/api/v1/books", bookRouter);
   app.use("/api/v1/transactions", transactionRouter);
-  app.get("/get-started", (req, res) =>
+  app.get("/", (req, res) =>
     res.json({ message: "Welcome to Route Library Management System 👋 !" })
   );
 
