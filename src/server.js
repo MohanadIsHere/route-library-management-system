@@ -34,12 +34,13 @@ const runServer = ({ express, app }) => {
     res.json({ message: "Welcome to Route Library Management System 👋 !" })
   );
 
-  app.use(/(.*)/, () => {
+  app.use((req, res, next) => {
     const error = new Error("Invalid Url or Method");
     error.statusCode = 404;
-    throw error;
+    next(error);
   });
 
+  // Error Middleware
   app.use(errorMiddleware);
 };
 export default runServer;
