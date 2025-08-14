@@ -5,6 +5,7 @@ import bookRouter from "./modules/books/book.routes.js";
 import transactionRouter from "./modules/transactions/transaction.routes.js";
 import userRouter from "./modules/users/user.routes.js";
 import helmet from "helmet";
+import morgan from "morgan";
 
 
 
@@ -23,6 +24,7 @@ const runServer = ({ express, app }) => {
   app.use(express.json());
   app.use(limiter);
   app.use(helmet());
+  app.use(morgan("dev"))
 
   connectToDatabase();
 
@@ -30,7 +32,7 @@ const runServer = ({ express, app }) => {
   app.use("/api/v1/users", userRouter);
   app.use("/api/v1/books", bookRouter);
   app.use("/api/v1/transactions", transactionRouter);
-  app.get("/get-started", (req, res) =>
+  app.get("/", (req, res) =>
     res.json({ message: "Welcome to Route Library Management System 👋 !" })
   );
 
