@@ -1,6 +1,6 @@
 import { NODE_ENV } from "../config/env.js";
 
-const errorMiddleware = (err, req, res) => {
+const errorMiddleware = (err, req, res, next) => {
   try {
     let error = { ...err };
     error.message = err.message;
@@ -15,7 +15,9 @@ const errorMiddleware = (err, req, res) => {
     // Mongoose duplicate key
     else if (err.code === 11000) {
       const field = Object.keys(err.keyPattern)[0];
-      const message = `${field.charAt(0).toUpperCase() + field.slice(1)} already exists`;
+      const message = `${
+        field.charAt(0).toUpperCase() + field.slice(1)
+      } already exists`;
       error = new Error(message);
       error.statusCode = 409;
     }
@@ -41,22 +43,18 @@ const errorMiddleware = (err, req, res) => {
       error.statusCode = 401;
     }
 
-    
-
-    res
-      .status(error.statusCode || 500)
-      .json({
-        message: error.message || "Internal Server Error",
-        success: false,
-        errors : error.errors ? error.errors : undefined,
-        stack : NODE_ENV === "development" ? error.stack : undefined
-      });
+    res.status(error.statusCode || 500).json({
+      message: error.message || "Internal Server Error",
+      success: false,
+      errors: error.errors ? error.errors : undefined,
+      stack: NODE_ENV === "development" ? error.stack : undefined,
+    });
   } catch (catchError) {
     // Fallback error response
-    console.error('Error in error middleware:', catchError);
+    console.error("Error in error middleware:", catchError);
     res.status(500).json({
       message: "Internal Server Error",
-      success: false
+      success: false,
     });
   }
 };
